@@ -1,7 +1,7 @@
 package com.keyin.entities;
 
-import javax.persistence.*;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import java.util.List;
 import java.util.Date;
 
@@ -14,12 +14,25 @@ public class Tournament {
     @GeneratedValue(generator = "tournament_sequence")
     private Long id;
 
+
     private Date startDate;
     private Date endDate;
     private String location;
     private Double entryFee;
     private Double cashPrizeAmount;
 
+    public Tournament(Long id, Date startDate, Date endDate, String location, Double entryFee, Double cashPrizeAmount, List<Member> participatingMembers) {
+        this.id = id;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.location = location;
+        this.entryFee = entryFee;
+        this.cashPrizeAmount = cashPrizeAmount;
+        this.participatingMembers = participatingMembers;
+    }
+
+    public Tournament() {
+    }
 
     @ManyToMany
     private List<Member> participatingMembers;
