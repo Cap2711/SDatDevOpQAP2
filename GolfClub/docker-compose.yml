@@ -1,23 +1,9 @@
 version: '3'
-
 services:
-  golfclub-api:
-    image: golf_club_api:latest
-    build:
-      context: .
+  myapp-main:
+    image: golfclub:latest
     ports:
-      - "8080:8080"
+      - 8080:8080
     environment:
-      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/golf_club_db
-      - spring.datasource.username=root
-      - spring.datasource.password=Keyin2021
-      - spring.jpa.hibernate.ddl-auto=update
-
-  db:
-    image: mysql:8.0
-    restart: always
-    environment:
-      MYSQL_DATABASE: Qap2DB
-      MYSQL_ROOT_PASSWORD: Keyin2021
-    ports:
-      - "3306:3306"
+      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/attendance_report_db
+      #- spring.datasource.url=jdbc:mysql://s4-fall-2022.ce2vcezehro2.us-east-1.rds.amazonaws.com/fall_2022

@@ -1,8 +1,9 @@
 package com.keyin.entities;
 
 
-import javax.persistence.*;
-import javax.persistence.Id;
+
+import jakarta.persistence.*;
+
 import java.util.List;
 import java.util.Date;
 
@@ -23,6 +24,21 @@ public class Member {
 
     @ManyToMany
     private List<Tournament> tournaments;
+
+
+    public Member(Long id, String name, String address, String email, String phoneNumber, Date startDate, Integer membershipDuration, List<Tournament> tournaments) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.startDate = startDate;
+        this.membershipDuration = membershipDuration;
+        this.tournaments = tournaments;
+    }
+
+    public Member() {
+    }
 
     public List<Tournament> getTournaments() {
         return tournaments;
